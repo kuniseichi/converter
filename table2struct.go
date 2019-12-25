@@ -256,10 +256,10 @@ type column struct {
 func (t *Table2Struct) getColumns(table ...string) (tableColumns map[string][]column, err error) {
 	// 根据设置,判断是否要把 date 相关字段替换为 string
 	if t.dateToTime == false {
-		typeForMysqlToGo["date"] = "string"
-		typeForMysqlToGo["datetime"] = "string"
-		typeForMysqlToGo["timestamp"] = "string"
-		typeForMysqlToGo["time"] = "string"
+		typeForMysqlToGo["date"] = "time.Time"
+		typeForMysqlToGo["datetime"] = "time.Time"
+		typeForMysqlToGo["timestamp"] = "time.Time"
+		typeForMysqlToGo["time"] = "time.Time"
 	}
 	tableColumns = make(map[string][]column)
 	// sql
